@@ -38,3 +38,10 @@ export async function popularMovies(){
     const data = await res.json();
     return data;
  }
+
+
+ export async function trendingNowMovies(){
+   const res = await fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options);
+   const data = await res.json();
+   return data;
+}
