@@ -6,6 +6,7 @@ import { popularActors } from "@/data/API/actors";
 
 
 import Input from "@/components/Input/Input";
+import NowPlayingMovies from "@/components/sections/NowPlayingMovies";
 
 
 
@@ -25,6 +26,7 @@ export default async function Home() {
   // Actors data
   const popularActorsData = await popularActors();
 
+  
 
  async function retrunDataFromClientSide(data) {
   "use server";
@@ -35,9 +37,8 @@ export default async function Home() {
   
   
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Input movieDeatils={movieDetails} ret={retrunDataFromClientSide}/>
-      <img className="w-5/12" src={`https://image.tmdb.org/t/p/original/g4jSGWknRJhuxbxeWQXbP1yDBvV.jpg`} />
-    </main>
+    <>
+    <h1>Lap Lap La</h1>
+    </>
   );
 }
