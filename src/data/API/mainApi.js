@@ -45,3 +45,12 @@ export async function popularMovies(){
    const data = await res.json();
    return data;
 }
+
+export async function genresList(){
+   const res = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options);
+   const data = await res.json();
+   return data;
+}
+
+
+

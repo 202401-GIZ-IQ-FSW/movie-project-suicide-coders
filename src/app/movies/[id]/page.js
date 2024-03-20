@@ -5,7 +5,6 @@ async function page({params}) {
 
     const movieDeatilsData = await movieDetails(movieId)
 
-    
   return (
     <div className="">
         <h1>{movieDeatilsData.original_title}</h1>

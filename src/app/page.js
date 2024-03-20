@@ -21,7 +21,7 @@ export default async function Home() {
   const trendingNowMoviesData = await trendingNowMovies();
 
   // Movies deatils data
-  const movieDetailsData = await movieDetails();
+  // const movieDetailsData = await movieDetails();
 
   // Actors data
   const popularActorsData = await popularActors();
