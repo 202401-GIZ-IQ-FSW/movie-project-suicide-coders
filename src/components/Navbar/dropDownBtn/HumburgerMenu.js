@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import Movies from "./Movies";
-import Actors from "../Actors";
-import SerchInput from "../SerchInput";
+import Actors from "../navComponents/Actors";
+import SerchInput from "../navComponents/SerchInput";
 
 // The component just for small screens
 const HumburgerMenu = ({ genresListData, params }) => {

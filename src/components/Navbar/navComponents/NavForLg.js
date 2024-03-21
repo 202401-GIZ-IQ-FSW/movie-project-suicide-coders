@@ -1,9 +1,9 @@
 "use client"
 import React from 'react'
-import Genres from './dropDownBtn/Genres'
-import Movies from './dropDownBtn/Movies'
+import Genres from '../dropDownBtn/Genres'
+import Movies from '../dropDownBtn/Movies'
 import Actors from './Actors'
-import ThemeSwitcher from '../Theme/ThemeSwitcher'
+import ThemeSwitcher from '@/components/Theme/ThemeSwitcher'
 import SearchInputLg from './SearchInputLg'
 
 // Nav for lg screens 
