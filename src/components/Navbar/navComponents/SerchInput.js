@@ -17,7 +17,8 @@ const SerchInput = () => {
         setIsOpen((prev)=> !prev); 
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         if (!searchValue) {
             return false;
         }
@@ -32,31 +33,16 @@ const SerchInput = () => {
     <form onSubmit={handleSubmit} className="flex justify-center items-center flex-col">
     <div className="mt-10 md:mt-0 relative">
         <FontAwesomeIcon
-        style={{
-            animation: `${isOpen? "inputIcons 4s ease-in": ""}`,
-        }}
-         className={`${isOpen? "absolute text-xl top-1 pl-2 left-0": "block"} border-r-[.5px] pr-2`} onClick={handleClick} icon={isOpen? faXmark : faMagnifyingGlass}/>
-        <div
-        style={
-            {
-                animation: `${isOpen? "inputAnimation 1s ease-in": ""}`,
-            }
-        }
-        className={`${isOpen? "visible": "hidden"}`}
-        >
+         className={`absolute text-xl top-1 pl-2 left-0 border-r-[.5px] pr-2`} icon={faMagnifyingGlass}/>
+        <div>
         <input 
         value={searchValue}
         onChange={({target})=> setSearchValue(target.value)}
-        style={
-            {
-                animation: `${isOpen? "inputAnimation 1s ease-in": ""}`,
-            }
-        }
-         className={`${isOpen? "visible": "hidden"} md:absolute md:w-24 md:pr-10 py-1 px-7 pl-9 rounded-md outline-none focus:outline-red-800 focus:outline-[.5px]`} type="text" placeholder="Search Movie"/>
+         className={`visible md:absolute md:w-24 md:pr-10 py-1 px-7 pl-10 rounded-md outline-none focus:outline-red-800 focus:outline-[.5px]`} type="text" placeholder="Search Movie"/>
         </div>
         
     </div>
-    {isOpen? <motion.div
+    <motion.div
     initial="hidden" 
         animate="visible"
         variants={{
@@ -75,7 +61,7 @@ const SerchInput = () => {
         <motion.button onClick={handleSubmit} whileTap={{
         scale: .8
     }} className="mt-5 md:w-fit md:text-sm md:m-0 px-3 py-1 text-lg drop-shadow-2xl shadow dark:bg-red-600 rounded-md bg-opacity-70">Sreach</motion.button>
-    </motion.div>: ""}
+    </motion.div>
     </form>
   )
 }

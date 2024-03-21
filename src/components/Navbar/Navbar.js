@@ -1,8 +1,8 @@
 import React from 'react'
-import Genres from './navComponents/dropDownBtn/Genres'
+import Genres from './dropDownBtn/Genres'
 import { genresList } from '@/data/API/mainApi'
-import ThemeSwitcher from './Theme/ThemeSwitcher';
-import HumburgerMenu from './navComponents/dropDownBtn/HumburgerMenu';
+import ThemeSwitcher from '../Theme/ThemeSwitcher';
+import HumburgerMenu from './dropDownBtn/HumburgerMenu';
 import NavForLg from './navComponents/NavForLg';
 import Link from 'next/link';
 
