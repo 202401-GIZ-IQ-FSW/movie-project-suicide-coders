@@ -5,7 +5,6 @@ import { movieDetails } from "@/data/API/movieDetailsApi";
 import { popularActors } from "@/data/API/actors";
 
 
-import Input from "@/components/Input/Input";
 import NowPlayingMovies from "@/components/sections/NowPlayingMovies";
 
 
