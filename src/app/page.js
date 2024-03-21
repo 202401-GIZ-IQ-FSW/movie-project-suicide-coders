@@ -5,7 +5,6 @@ import { movieDetails } from "@/data/API/movieDetailsApi";
 import { popularActors } from "@/data/API/actors";
 
 
-import Input from "@/components/Input/Input";
 import NowPlayingMovies from "@/components/sections/NowPlayingMovies";
 
 
@@ -21,7 +20,7 @@ export default async function Home() {
   const trendingNowMoviesData = await trendingNowMovies();
 
   // Movies deatils data
-  const movieDetailsData = await movieDetails();
+  // const movieDetailsData = await movieDetails();
 
   // Actors data
   const popularActorsData = await popularActors();

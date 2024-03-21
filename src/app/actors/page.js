@@ -1,9 +1,7 @@
 
-
 const page = () => {
-    
   return (
-    <div>Movies</div>
+    <div>Actors Page</div>
   )
 }
 
