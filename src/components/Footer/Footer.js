@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
   
-    <footer className="bg-gray-900 text-white py-8 fixed bottom-0 w-full  dark:bg-dark">
+    <footer className="bg-gray-900 text-white py-8  bottom-0 w-full  dark:bg-dark">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-center sm:text-left">
           <p className="text-sm">&copy; PLUTO 2024</p>

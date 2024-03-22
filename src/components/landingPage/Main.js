@@ -1,5 +1,5 @@
 "use client";
-import { getRandomNumber } from "@/functions/RandomNumber";
+import { getRandomNumber } from "../../../functions/RandomNumber";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,7 @@ const Main = ({ trendingNowMoviesData }) => {
   return (
     <>
       {heroMovieData ? (
-        <div className="relative mb-3 md:hidden h-[50vh] flex justify-center items-center p-2 ">
+        <div key={1} className="relative mb-3 md:hidden h-[50vh] flex justify-center items-center p-2 ">
           <img
             className="absolute blur-sm w-screen h-full opacity-60 clip"
             src={src + heroMovieData.backdrop_path}
@@ -118,12 +118,12 @@ const Main = ({ trendingNowMoviesData }) => {
       </div>
         <div className="carousel carousel-center   p-4 pt-1 space-x-4 bg-neutral rounded-box my-5 max-w-full">
           {trendingNowMoviesData.results.map((item, i) => (
-            <div className="carousel-item ">
+            <div className="carousel-item "  key={i}>
               <Link
                 href={{
                   pathname: `/movies/${item.id}`,
                 }}
-                key={i}
+               
               >
                 <img
                   style={{

@@ -7,6 +7,7 @@ import Main from "@/components/landingPage/Main";
 
 import NowPlayingMovies from "@/components/sections/NowPlayingMovies";
 
+import {Suspense} from "react";
 
 
 export default async function Home() {
