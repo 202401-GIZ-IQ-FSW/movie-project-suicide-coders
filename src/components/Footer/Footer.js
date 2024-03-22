@@ -2,9 +2,11 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-4 bottom-0 w-full dark:bg-dark absolute ">
-      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-        <div className="text-center sm:text-left mb-4 sm:mb-0">
+
+  
+    <footer className="bg-gray-900 text-white py-8  bottom-0 w-full  dark:bg-dark">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="text-center sm:text-left">
           <p className="text-sm">&copy; PLUTO 2024</p>
         </div>
         <div className="text-center sm:text-right">

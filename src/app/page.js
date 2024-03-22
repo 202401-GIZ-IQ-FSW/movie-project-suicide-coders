@@ -1,12 +1,7 @@
 "use server"
-import Image from "next/image";
 import { nowPlayingMovies, popularMovies, topRatedMovies, upComingMovies,trendingNowMovies } from "@/data/API/mainApi";
-import { movieDetails } from "@/data/API/movieDetailsApi";
 import { popularActors } from "@/data/API/actors";
 import Main from "@/components/landingPage/Main";
-
-import NowPlayingMovies from "@/components/sections/NowPlayingMovies";
-
 
 
 export default async function Home() {
@@ -36,8 +31,8 @@ export default async function Home() {
   
   
   return (
-    <>
-      <Main nowPlayingMoviesData={nowPlayingMoviesData} />
-    </>
+    <div>
+      <Main trendingNowMoviesData={trendingNowMoviesData} />
+    </div>
   );
 }

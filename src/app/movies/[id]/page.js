@@ -1,4 +1,4 @@
-import { movieDetails } from "@/data/API/movieDetailsApi"
+import { movieDetails } from "@/data/API/movieDetailsApi";
 
 async function page({params}) {
     const movieId = params.id;
@@ -7,7 +7,7 @@ async function page({params}) {
 
   return (
     <div className="">
-        <h1>{movieDeatilsData.original_title}</h1>
+        <h1>{movieDeatilsData?.original_title}</h1>
     </div>
   )
 }

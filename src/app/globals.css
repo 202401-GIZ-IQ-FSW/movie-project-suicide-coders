@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=Timmana&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 @layer base {
 
@@ -15,6 +19,7 @@
 
   :root[class~="dark"] {
     background-color: #171717;
+    color: white;
     --color-primary: 247 147 34;
     --color-text: 33 33 33;
     --color-success: 0 200 81;
@@ -23,6 +28,31 @@
     --color-error: 254 78 78;
   }
 }
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Chau Philomene One", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ti {
+  font-family: "Timmana", sans-serif;
+  font-weight: 100;
+  font-size: .9rem;
+  font-weight: lighter;
+}
+
+
+.clip {
+  clip-path: polygon(30% 0, 100% 0, 100% 30%, 100% 80%, 70% 100%, 30% 100%, 0 100%, 0 20%);
+}
+
+.clip-lg {
+  clip-path: polygon(10% 0, 100% 0, 100% 30%, 100% 85%, 90% 100%, 30% 100%, 0 100%, 0 15%);
+
+}
+
+
 
 @keyframes inputAnimation {
   0%{
