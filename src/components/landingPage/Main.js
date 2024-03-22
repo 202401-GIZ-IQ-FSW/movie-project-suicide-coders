@@ -12,7 +12,7 @@ const Main = ({ trendingNowMoviesData }) => {
     setHeroMovieData(trendingNowMoviesData.results[getRandomNumber(10)]);
   }, []);
   const src = "https://image.tmdb.org/t/p/original";
-  console.log(heroMovieData);
+
   return (
     <>
       {heroMovieData ? (
