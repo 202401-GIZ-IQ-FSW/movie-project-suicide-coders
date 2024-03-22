@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Provider>
-        <Suspense fallback={<div className="h-screen w-screen flex justify-center items-center"><span className="loading loading-infinity loading-lg"></span></div>}>
+        <Suspense fallback={<div className="h-screen w-screen flex justify-center items-center text-6xl"><span className="loading loading-infinity loading-lg"></span></div>}>
           <Navbar />
           {children}
           <Footer />
