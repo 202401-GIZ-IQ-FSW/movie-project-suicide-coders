@@ -10,7 +10,7 @@ import SearchInputLg from './SearchInputLg'
 const NavForLg = ({genresListData}) => {
   return (
     
-        <ul className=' lg:gap-x-14 md:gap-x-8  grid-cols-5 hidden md:flex '>
+        <ul className=' lg:gap-x-14 md:gap-x-4  grid-cols-5 hidden md:flex '>
             <li>
                 <Genres genresListData={genresListData} />
             </li>

@@ -36,8 +36,8 @@ export default async function Home() {
   
   
   return (
-    <>
+    <div>
       <Main nowPlayingMoviesData={nowPlayingMoviesData} />
-    </>
+    </div>
   );
 }

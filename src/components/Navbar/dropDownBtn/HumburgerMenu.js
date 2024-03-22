@@ -52,13 +52,13 @@ const HumburgerMenu = ({ genresListData, params }) => {
             }
           }
         }}
-        className={`text-center pt-2 absolute top-[100%] right-[0vw]  h-screen md:h-fit bg-white dark:bg-dark w-screen  flex flex-col  items-center ${
+        className={`z-30 text-center pt-2 absolute top-[100%] bg-white right-[-5vw]  h-screen md:h-fit dark:bg-dark w-screen  flex flex-col  items-center ${
           isOpen ? " visible" : "hidden opacity-0"
         } `}
       >
 
       {/* Nav items */}
-        <span className="mt-2  self-end md:hidden">
+        <span className="mt-2 mx-4  self-end md:hidden">
           <ThemeSwitcher />
         </span>
         <span className="mt-2">

@@ -11,12 +11,12 @@ async function Navbar(){
   const genresListData = await genresList();
 
   return (
-    <nav className='flex justify-between pl-10 pr-5 py-8 '>
+    <nav className='flex justify-between pl-10 pr-5 py-5 '>
     {/* when logo clicked it redirect to main page */}
       <Link href={{
         pathname: `/`,
       }}>
-      <h1 className='font-bold text-2xl cursor-pointer'>PLUTO</h1>
+      <h1 className='font-bold text-3xl lg:pl-10 cursor-pointer'>PLUTO</h1>
       </Link>
 
       {/* nav for small screens */}
