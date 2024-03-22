@@ -123,7 +123,7 @@ const Main = ({ trendingNowMoviesData }) => {
                 href={{
                   pathname: `/movies/${item.id}`,
                 }}
-                key={item.id}
+                key={i}
               >
                 <img
                   style={{
