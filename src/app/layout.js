@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Provider>
-        <Suspense fallback={<>Loading...</>}>
+        <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
           <Navbar />
           {children}
           <Footer />
