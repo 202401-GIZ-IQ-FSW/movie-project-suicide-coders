@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import SectionsMovie from "../sections/SectionsMovie"
 
-const Main = ({ trendingNowMoviesData }) => {
+const Main = ({ trendingNowMoviesData,nowPlayingMoviesData,popularMoviesData,upComingMoviesData,topRatedMoviesData }) => {
   const [heroMovieData, setHeroMovieData] = useState();
 
   useEffect(() => {
     setHeroMovieData(trendingNowMoviesData.results[getRandomNumber(10)]);
   }, []);
+
   const src = "https://image.tmdb.org/t/p/original";
 
   return (
@@ -110,6 +112,12 @@ const Main = ({ trendingNowMoviesData }) => {
         ""
       )}
       <div>
+      <SectionsMovie title="Trending" moviesData={trendingNowMoviesData}/>
+      <SectionsMovie title="Now Playing" moviesData={nowPlayingMoviesData}/>
+      <SectionsMovie title="Coming Soon" moviesData={upComingMoviesData}/> 
+      <SectionsMovie title="Top Rated" moviesData={topRatedMoviesData}/>
+      <SectionsMovie title="Popular" moviesData={popularMoviesData}/>
+
       </div>
     </>
   );

@@ -13,14 +13,14 @@ const options = {
 
   
 export async function nowPlayingMovies(){
-   const res = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options);
+   const res = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2', options);
    const data = await res.json();
     return data;
 }
        
 
 export async function popularMovies(){
-    const res = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+    const res = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=2', options)
     const data = await res.json();
     return data;
  }
@@ -34,7 +34,7 @@ export async function popularMovies(){
 
 
  export async function upComingMovies(){
-    const res = await fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options);
+    const res = await fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=2', options);
     const data = await res.json();
     return data;
  }
