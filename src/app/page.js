@@ -1,11 +1,15 @@
-"use server"
-import { nowPlayingMovies, popularMovies, topRatedMovies, upComingMovies,trendingNowMovies } from "@/data/API/mainApi";
+"use server";
+import {
+  nowPlayingMovies,
+  popularMovies,
+  topRatedMovies,
+  upComingMovies,
+  trendingNowMovies,
+} from "@/data/API/mainApi";
 import { popularActors } from "@/data/API/actors";
 import Main from "@/components/landingPage/Main";
 
-
 export default async function Home() {
-
   // Bring json data from api functions and assign it to a variable
   // Please if you have any note let me know "Moahmmed Nazar"
   const nowPlayingMoviesData = await nowPlayingMovies();
@@ -20,19 +24,20 @@ export default async function Home() {
   // Actors data
   const popularActorsData = await popularActors();
 
-  
-
- async function retrunDataFromClientSide(data) {
-  "use server";
+  async function retrunDataFromClientSide(data) {
+    "use server";
     return await data;
   }
 
-
-  
-  
   return (
     <div>
-      <Main trendingNowMoviesData={trendingNowMoviesData} />
+      <Main
+        trendingNowMoviesData={trendingNowMoviesData}
+        popularMoviesData={popularMoviesData}
+        topRatedMoviesData={topRatedMoviesData}
+        upComingMoviesData={upComingMoviesData}
+        nowPlayingMoviesData={nowPlayingMoviesData}
+      />
     </div>
   );
 }

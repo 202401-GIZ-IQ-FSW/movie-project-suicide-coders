@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=Timmana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,6 +29,22 @@
     --color-warn: 255 187 51;
     --color-error: 254 78 78;
   }
+}
+
+.cha-font {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.sh-text {
+  text-shadow: 1px 1px 10px rgba(255, 0, 0, 0.565);
+}
+
+.dm {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1,h2,h3,h4,h5,h6 {

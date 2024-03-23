@@ -40,7 +40,7 @@ const Genres = ({ genresListData }) => {
         className="flex items-center hover:shadow-sm dark:hover:shadow-red-600 px-2 py-[2px] rounded-md"
         onClick={handleClick}
       >
-        <p className="text-xl ">
+        <p className="text-xl cha-font">
        <FontAwesomeIcon className="w-4" icon={faBarsStaggered}/> {genresEl}</p>
 
         <FontAwesomeIcon

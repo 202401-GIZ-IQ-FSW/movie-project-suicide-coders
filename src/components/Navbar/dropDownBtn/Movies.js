@@ -39,7 +39,7 @@ const Movies = ({ genresListData }) => {
     <div className="flex flex-col relative py-[2px] px-2 md:mt-0  mt-10 border-b-[.2px] justify-center items-center w-screen md:w-fit pb-4 md:p-0 md:border-none">
      
       <div className="timmana-regular flex items-center hover:shadow-sm dark:hover:shadow-red-600 px-2 py-[2px] rounded-md " onClick={handleClick}>
-        <p className="text-xl" >
+        <p className="text-xl cha-font" >
         <FontAwesomeIcon className="w-4 pr-1" icon={faFilm}/>
         {mainEl}
         </p>
