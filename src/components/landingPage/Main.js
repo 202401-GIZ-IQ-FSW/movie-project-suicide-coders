@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import SectionsMovie from "../sections/SectionsMovie"
+import SectionsMovie from "../../components/sections/SectionsMovie"
 
 const Main = ({ trendingNowMoviesData,nowPlayingMoviesData,popularMoviesData,upComingMoviesData,topRatedMoviesData }) => {
   const [heroMovieData, setHeroMovieData] = useState();
