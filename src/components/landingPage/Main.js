@@ -127,9 +127,9 @@ const Main = ({
         ""
       )}
       {
-          genreParams &&<div className="w-full flex justify-center items-center"><span onClick={()=>{
+          genreParams &&<div className="w-full flex justify-evenly"><button onClick={()=>{
           router.push(`/movies`)
-        }} className=" mx-auto text text-red-600 cursor-pointer text-[8px] lg:text-sm ">reset <b>Genres</b></span></div> 
+        }} className="btn btn-xs lg:btn-sm text-red-600 cursor-pointer text-[10px] lg:text-sm ">reset <b>Genres</b></button></div> 
         }
 
       <div>

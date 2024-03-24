@@ -22,12 +22,12 @@ const MoivesQuery = ({title, data, pageNumber}) => {
 
   return (
     <div className="py-2 lg:px-10 px-5">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl">{title} Movies</h1>
+      <div className="flex justify-between items-center relative">
+        <h1 className="text-xl md:text-2xl ">{title} Movies</h1>
         {
-          genreParams && <span onClick={()=>{
+          genreParams &&<div className="absolute top-[-20px] right-40 w-full flex justify-end"><button onClick={()=>{
           router.push(`/movies?movies=${title}&page=${pageParams? pageParams : 1}`)
-        }} className=" text text-red-600 cursor-pointer text-[8px] mx-[2px] lg:text-sm ">reset <b>Genres</b></span>
+        }} className="btn btn-xs lg:btn-sm text-red-600 cursor-pointer text-[10px] lg:text-sm">reset <b>Genres</b></button></div> 
         }
         {title != "Trending"&& <div className="join ">
         <button onClick={()=>{
