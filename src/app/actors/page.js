@@ -34,7 +34,7 @@ async function ActorsList() {
   const actorsData = await popularActors();
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-4 py-8 ">
       <h2 className="text-2xl font-bold mb-4">Popular Actors</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {actorsData.results.map((actor) => (
