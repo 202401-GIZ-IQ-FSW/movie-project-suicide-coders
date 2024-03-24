@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import SectionsMovie from "./sections/SectionsMovie";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Main = ({
   trendingNowMoviesData,
@@ -17,6 +18,7 @@ const Main = ({
   const [heroMovieData, setHeroMovieData] = useState();
   const searchParams = useSearchParams();
   const genreParams = searchParams.get("genre");
+  const router = useRouter();
 
   useEffect(() => {
     setHeroMovieData(trendingNowMoviesData.results[getRandomNumber(10)]);
@@ -124,7 +126,11 @@ const Main = ({
       ) : (
         ""
       )}
-      
+      {
+          genreParams &&<div className="w-full flex justify-center items-center"><span onClick={()=>{
+          router.push(`/movies`)
+        }} className=" mx-auto text text-red-600 cursor-pointer text-[8px] lg:text-sm ">reset <b>Genres</b></span></div> 
+        }
 
       <div>
         <SectionsMovie title="Trending" moviesData={trendingNowMoviesData} />
