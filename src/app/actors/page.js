@@ -1,6 +1,4 @@
-'use client';
 
-import { useEffect, useState } from "react";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -34,23 +32,14 @@ const ActorCard = ({ actor }) => {
   );
 };
 
-const ActorsList = () => {
-  const [actors, setActors] = useState([]);
-
-  useEffect(() => {
-    const fetchActors = async () => {
-      const data = await popularActors();
-      setActors(data);
-    };
-
-    fetchActors();
-  }, []);
+async function ActorsList() {
+  const actorsData = await popularActors();
 
   return (
     <div className="container mx-auto py-8">
       <h2 className="text-2xl font-bold mb-4">Popular Actors</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {actors.map((actor) => (
+        {actorsData.results.map((actor) => (
           <ActorCard key={actor.id} actor={actor} />
         ))}
       </div>
