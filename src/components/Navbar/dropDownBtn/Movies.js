@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 
 const Movies = ({ genresListData }) => {
-  const MoviesCategory = ["Top Rate", "Popular", "Latest", "Now playing", "Upcoming"]; 
+  const MoviesCategory = ["Top Rate", "Popular", "Now playing", "Upcoming"]; 
 
 
   const [mainEl, setmainEl] = useState("Movies");
@@ -20,7 +20,8 @@ const Movies = ({ genresListData }) => {
   // check search params
   const searchParams = useSearchParams();
   const params = searchParams.get("movies");
-
+  const genreParams = searchParams.get("genre");
+  const pageParams = searchParams.get("page");
 
 
   useEffect(()=>{
@@ -71,6 +72,7 @@ const Movies = ({ genresListData }) => {
                 pathname: `/movies`,
                 query: {
                   movies: item,
+                  ...(genreParams ? {genre: genreParams}: {}),
                 },
                 
               }}
