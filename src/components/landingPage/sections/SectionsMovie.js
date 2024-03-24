@@ -61,10 +61,11 @@ const SectionsMovie = ({ title, moviesData }) => {
                   <div className=" text-white pb-10 pl-3  rounded-b-2xl pt-2 backdrop-blur-sm">
                     <h2 className="card-title sh-text">{item.title}</h2>
                     <div className="sh-text absolute bottom-3 right-3 flex">
-                      <p>{item.vote_average.toString().slice(0, 3)}</p>
-                      <span className="text-yellow-400 font-bold ml-2">
+                    <span className="text-yellow-400 font-bold mr-1">
                         <FontAwesomeIcon className=" " icon={faStar} />
                       </span>
+                      <p>{item.vote_average.toString().slice(0, 3)}</p>
+                      
                     </div>
                   </div>
                 </div>

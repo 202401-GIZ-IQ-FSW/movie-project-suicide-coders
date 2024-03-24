@@ -54,3 +54,8 @@ export async function genresList(){
 
 
 
+export async function SearchQuery(query, pageNumber){
+   const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${pageNumber}`, options);
+   const data = await res.json();
+   return data;
+}
