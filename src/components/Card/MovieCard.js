@@ -6,7 +6,7 @@ const MovieCard = ({ moiveData }) => {
   const src = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div className="card card-compact bg-base-100 shadow-xl md:w-[13rem] w-[9rem]  h-full">
+    <div className="card card-compact bg-base-100 shadow-xl md:w-[13rem] w-[9rem]  h-full m-1">
     <Link href={{
         pathname: `/movies/${moiveData.id}`,
     }}>
