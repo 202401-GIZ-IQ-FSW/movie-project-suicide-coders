@@ -11,23 +11,21 @@ const ActorCard = ({ actor }) => {
   const src = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div className="mx-1 relative mb-2 md:w-[13rem] w-[6rem]">
-      <Link href={`/actors/${actor.id}`}>
-        <img
-          className="w-[13rem] rounded-lg"
-          src={src + actor.profile_path}
-          alt={actor.name}
-        />
+<div className="card card-compact bg-base-100 shadow-xl md:w-[13rem] w-[9rem]  h-full m-1">
+    <Link href={{
+        pathname: `/actors/${actor.id}`,
+    }}>
+                <figure>
+                  <img
+                  className="w-[14rem] rounded-md"
+                   src={src + actor.profile_path}
+          alt={actor.name} />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title text-base lg:text-xl">{actor.name}</h2>
+            <p>{actor.popularity.toFixed(1)}</p>
+                </div>
       </Link>
-      <div className="text-white absolute bottom-0 flex backdrop-blur-sm w-full">
-        <h1 className="sh-text md:text-lg text-sm pl-1 pb-4">{actor.name}</h1>
-        <div className="sh-text absolute bottom-1 md:text-sm text-[10px] right-0 flex">
-          <span className="text-yellow-400 font-bold mr-1">
-            <FontAwesomeIcon className=" " icon={faStar} />
-          </span>
-          <p>{actor.popularity.toFixed(1)}</p>
-        </div>
-      </div>
     </div>
   );
 };
