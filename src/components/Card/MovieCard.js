@@ -16,7 +16,7 @@ const MovieCard = ({ moiveData }) => {
                    src={src + moiveData.poster_path} alt="Shoes" />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title">{moiveData.title.slice(0,7)}</h2>
+                  <h2 className="card-title">{moiveData.title.slice(0,12)}</h2>
                   <div className="absolute bottom-2 md:text-sm text-[10px] right-2 flex">
                     <span className="text-yellow-400 font-bold mr-1">
                       <FontAwesomeIcon className=" " icon={faStar} />
