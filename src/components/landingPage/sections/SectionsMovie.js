@@ -5,15 +5,15 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const SectionsMovie = ({ title, moviesData }) => {
-    const router = useRouter();
+  const router = useRouter();
 
   const src = "https://image.tmdb.org/t/p/original";
-  const [selectVlaue , setSelectVlaue] = useState("day");
+  const [selectVlaue, setSelectVlaue] = useState("day");
 
-  const handleChange = ({target})=>{
+  const handleChange = ({ target }) => {
     setSelectVlaue(target.value);
-    router.push(`/?=${target.value}`)
-  }
+    router.push(`/?=${target.value}`);
+  };
 
   return (
     <>
@@ -21,7 +21,11 @@ const SectionsMovie = ({ title, moviesData }) => {
         <div className="flex">
           <h1 className="text-3xl">{title}</h1>
           {title == "Trending" ? (
-            <select onChange={handleChange} value={selectVlaue}  className="ml-2 select w-full max-w-xs dark:bg-dark outline-0 border-0 focus:outline-0 text-white">
+            <select
+              onChange={handleChange}
+              value={selectVlaue}
+              className="ml-2 select w-full max-w-xs dark:bg-dark outline-0 border-0 focus:outline-0 text-white"
+            >
               <option>day</option>
               <option>week</option>
             </select>
@@ -41,7 +45,7 @@ const SectionsMovie = ({ title, moviesData }) => {
       <div className="carousel carousel-center   p-4 pt-1 space-x-4 bg-neutral rounded-box my-5 max-w-full ">
         {moviesData.results.slice(0, 9).map((item, i) => (
           <div
-            className="carousel-item hover:scale-105 transition-all ease-in duration-200"
+            className="card card-compact carousel-item  shadow-xl hover:scale-105 transition-all ease-in duration-200"
             key={i}
           >
             <Link
@@ -49,27 +53,20 @@ const SectionsMovie = ({ title, moviesData }) => {
                 pathname: `/movies/${item.id}`,
               }}
             >
-              <div className="card w-[15rem] bg-base-100 shadow-xl image-full flex">
                 <figure>
                   <img
-                    src={src + item.poster_path}
-                    alt={item.title}
-                    className="w-full"
-                  />
+                  className="w-[14rem] rounded-md"
+                   src={src + item.poster_path} alt="Shoes" />
                 </figure>
-                <div className="flex justify-end flex-col">
-                  <div className=" text-white pb-10 pl-3  rounded-b-2xl pt-2 backdrop-blur-sm">
-                    <h2 className="card-title sh-text">{item.title}</h2>
-                    <div className="sh-text absolute bottom-3 right-3 flex">
+                <div className="card-body">
+                  <h2 className="card-title text-xl lg:text-2xl">{item.title.slice(0,12)}</h2>
+                  <div className="absolute bottom-2 md:text-sm text-[10px] right-2 flex">
                     <span className="text-yellow-400 font-bold mr-1">
-                        <FontAwesomeIcon className=" " icon={faStar} />
-                      </span>
-                      <p>{item.vote_average.toString().slice(0, 3)}</p>
-                      
-                    </div>
+                      <FontAwesomeIcon className=" " icon={faStar} />
+                    </span>
+                    <p>{item.vote_average.toString().slice(0, 3)}</p>
                   </div>
                 </div>
-              </div>
             </Link>
           </div>
         ))}
