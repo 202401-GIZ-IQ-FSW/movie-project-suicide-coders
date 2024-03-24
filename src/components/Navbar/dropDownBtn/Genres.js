@@ -21,11 +21,15 @@ const Genres = ({ genresListData }) => {
   // checking search params
   const searchParams = useSearchParams();
   const genreParams = searchParams.get("genre");
+  const moviesParams = searchParams.get("movies");
+  const pageParams = searchParams.get("page");
+
+
 
   // close genres menu if clicked
   useEffect(() => {
     searchParams.get("genre") == true ? setIsOpen(true) : setIsOpen(false);
-    setGenresEl(genreParams ? genreParams : "Genres");
+    setGenresEl("Genres");
   }, [searchParams.get("genre")]);
 
   const handleClick = () => {
@@ -80,7 +84,9 @@ const Genres = ({ genresListData }) => {
                   href={{
                     pathname: `/movies`,
                     query: {
-                      genre: genres.name,
+                      genre: genres.id,
+                      ...(moviesParams ? { movies: moviesParams } : {}),
+                      ...(pageParams ? { page: pageParams } : {})
                     },
                   }}
                 >

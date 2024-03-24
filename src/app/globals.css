@@ -38,7 +38,7 @@
 }
 
 .sh-text {
-  text-shadow: 1px 1px 10px rgba(255, 0, 0, 0.565);
+  text-shadow: 1px 1px 10px rgba(255, 0, 0, 0.651);
 }
 
 .dm {
@@ -70,6 +70,11 @@ h1,h2,h3,h4,h5,h6 {
 
 }
 
+.clip-b {
+  clip-path: polygon(0 1%, 100% 0, 100% 90%, 75% 90%, 75% 100%, 30% 100%, 0 100%, 0% 30%);
+
+}
+
 
 
 @keyframes inputAnimation {
@@ -90,5 +95,19 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
+@screen lg {
+  .md\:join-item {
+    @apply text-[17px];
+  }
+}
 
+
+.join-item {
+  @apply w-2;
+  @apply mx-[1px];
+  @apply py-1;
+  @apply text-[10px];
+  @apply h-[10px];
+  @apply border-none;
+}
 

@@ -12,36 +12,36 @@ const options = {
 
 
   
-export async function nowPlayingMovies(){
-   const res = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=2', options);
+export async function nowPlayingMovies(pageNumber = 3){
+   const res = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${pageNumber}`, options);
    const data = await res.json();
     return data;
 }
        
 
-export async function popularMovies(){
-    const res = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=2', options)
+export async function popularMovies(pageNumber = 2){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${pageNumber}`, options)
     const data = await res.json();
     return data;
  }
 
  
- export async function topRatedMovies(){
-    const res = await fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options);
+ export async function topRatedMovies(pageNumber = 1){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${pageNumber}`, options);
     const data = await res.json();
     return data;
  }
 
 
- export async function upComingMovies(){
-    const res = await fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=2', options);
+ export async function upComingMovies(pageNumber = 2){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${pageNumber}`, options);
     const data = await res.json();
     return data;
  }
 
 
- export async function trendingNowMovies(){
-   const res = await fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options);
+ export async function trendingNowMovies(trendTime = "day"){
+   const res = await fetch(`https://api.themoviedb.org/3/trending/movie/${trendTime}?language=en-US`, options);
    const data = await res.json();
    return data;
 }

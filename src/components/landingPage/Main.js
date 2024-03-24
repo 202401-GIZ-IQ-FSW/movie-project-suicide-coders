@@ -5,9 +5,18 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import SectionsMovie from "./sections/SectionsMovie";
+import { useSearchParams } from "next/navigation";
 
-const Main = ({ trendingNowMoviesData,nowPlayingMoviesData,popularMoviesData,upComingMoviesData,topRatedMoviesData }) => {
+const Main = ({
+  trendingNowMoviesData,
+  nowPlayingMoviesData,
+  popularMoviesData,
+  upComingMoviesData,
+  topRatedMoviesData,
+}) => {
   const [heroMovieData, setHeroMovieData] = useState();
+  const searchParams = useSearchParams();
+  const genreParams = searchParams.get("genre");
 
   useEffect(() => {
     setHeroMovieData(trendingNowMoviesData.results[getRandomNumber(10)]);
@@ -17,8 +26,12 @@ const Main = ({ trendingNowMoviesData,nowPlayingMoviesData,popularMoviesData,upC
 
   return (
     <>
-      {heroMovieData ? (
-        <div key={1} className="relative mb-3 md:hidden h-[50vh] flex justify-center items-center p-2 ">
+
+      {heroMovieData && !genreParams? (
+        <div
+          key={1}
+          className="relative mb-3 md:hidden h-[50vh] flex justify-center items-center p-2 "
+        >
           <img
             className="absolute blur-sm w-screen h-full opacity-60 clip"
             src={src + heroMovieData.backdrop_path}
@@ -64,7 +77,7 @@ const Main = ({ trendingNowMoviesData,nowPlayingMoviesData,popularMoviesData,upC
       ) : (
         ""
       )}
-      {heroMovieData ? (
+      {heroMovieData && !genreParams? (
         <div className="relative mb-3 h-[70vh] md:flex justify-center items-center hidden  ">
           <img
             className="absolute blur-sm w-screen h-full opacity-60 clip-lg"
@@ -111,13 +124,14 @@ const Main = ({ trendingNowMoviesData,nowPlayingMoviesData,popularMoviesData,upC
       ) : (
         ""
       )}
-      <div>
-      <SectionsMovie title="Trending" moviesData={trendingNowMoviesData}/>
-      <SectionsMovie title="Now Playing" moviesData={nowPlayingMoviesData}/>
-      <SectionsMovie title="Coming Soon" moviesData={upComingMoviesData}/> 
-      <SectionsMovie title="Top Rated" moviesData={topRatedMoviesData}/>
-      <SectionsMovie title="Popular" moviesData={popularMoviesData}/>
+      
 
+      <div>
+        <SectionsMovie title="Trending" moviesData={trendingNowMoviesData} />
+        <SectionsMovie title="Now playing" moviesData={nowPlayingMoviesData} />
+        <SectionsMovie title="Upcoming" moviesData={upComingMoviesData} />
+        <SectionsMovie title="Top Rate" moviesData={topRatedMoviesData} />
+        <SectionsMovie title="Popular" moviesData={popularMoviesData} />
       </div>
     </>
   );
