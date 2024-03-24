@@ -14,3 +14,15 @@ export async function popularActors(){
     const data = await res.json();
     return data;
  }
+
+ const fetchActors = async () => {
+  try {
+    const data = await popularActors();
+    setActors(data);
+  } catch (error) {
+    console.error("Error fetching actors:", error);
+    // Handle error (e.g., show error message to user)
+  }
+};
+
+fetchActors()
