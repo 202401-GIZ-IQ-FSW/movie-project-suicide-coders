@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const SectionsMovie = ({ title, moviesData }) => {
+const SectionTv = ({ title, moviesData }) => {
   const router = useRouter();
 
   const src = "https://image.tmdb.org/t/p/original";
@@ -36,22 +36,22 @@ const SectionsMovie = ({ title, moviesData }) => {
         </div>
         <Link
           href={{
-            pathname: `/movies`,
-            query: { movies: title },
+            pathname: `/tvshow`,
+            query: { tv: title },
           }}
         >
           <span className=" text-red-600 ">See All +</span>
         </Link>
       </div>
       <div className="carousel carousel-center   p-4 pt-1 space-x-4 bg-neutral rounded-box my-5 max-w-full ">
-        {moviesData.results.slice(0, 9).map((item, i) => (
+        {moviesData.results.slice(0, 12).map((item, i) => (
           <div
             className="card card-compact carousel-item  shadow-xl hover:scale-105 transition-all ease-in duration-200"
             key={i}
           >
             <Link
               href={{
-                pathname: `/movies/${item.id}`,
+                pathname: `/tvshows/${item.id}`,
               }}
             >
                 <figure>
@@ -60,7 +60,7 @@ const SectionsMovie = ({ title, moviesData }) => {
                    src={src + item.poster_path} alt="Shoes" />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title text-xl lg:text-2xl">{item.title.slice(0,12)}</h2>
+                  <h2 className="card-title text-xl lg:text-2xl">{item.original_name.slice(0,12)}</h2>
                   <div className="absolute bottom-2 md:text-sm text-[10px] right-2 flex">
                     <span className="text-yellow-400 font-bold mr-1">
                       <FontAwesomeIcon className=" " icon={faStar} />
@@ -76,4 +76,4 @@ const SectionsMovie = ({ title, moviesData }) => {
   );
 };
 
-export default SectionsMovie;
+export default SectionTv;

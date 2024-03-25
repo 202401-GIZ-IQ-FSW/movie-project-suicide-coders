@@ -59,3 +59,10 @@ export async function SearchQuery(query, pageNumber){
    const data = await res.json();
    return data;
 }
+
+
+export async function trendingNowTv(trendTime = "day"){
+   const res = await fetch(`https://api.themoviedb.org/3/trending/tv/${trendTime}?language=en-US`, options);
+   const data = await res.json();
+   return data;
+}
