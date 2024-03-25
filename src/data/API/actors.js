@@ -9,20 +9,23 @@ const options = {
 // 
 
 
-export async function popularActors(){
-    const res = await fetch('https://api.themoviedb.org/3/person/popular?language=en-US&page=1', options);
+export async function popularActors(pageNumber = 1){
+    const res = await fetch(`https://api.themoviedb.org/3/person/popular?language=en-US&page=${pageNumber}`, options);
     const data = await res.json();
     return data;
  }
 
- const fetchActors = async () => {
-  try {
-    const data = await popularActors();
-    setActors(data);
-  } catch (error) {
-    console.error("Error fetching actors:", error);
-    // Handle error (e.g., show error message to user)
-  }
-};
 
-fetchActors()
+ 
+export async function ActorDetails(id){
+  const res = await fetch(`https://api.themoviedb.org/3/person/${id}?language=en-US`, options);
+  const data = await res.json();
+  return data;
+}
+
+
+export async function ActorHasMovie(id){
+  const res = await fetch(`https://api.themoviedb.org/3/person/${id}/movie_credits?language=en-US`, options)  ;
+  const data = await res.json();
+  return data;
+}
