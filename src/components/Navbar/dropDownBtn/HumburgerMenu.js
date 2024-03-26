@@ -9,6 +9,7 @@ import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import Movies from "./Movies";
 import Actors from "../navComponents/Actors";
 import SerchInput from "../navComponents/SerchInput";
+import TvShows from "../navComponents/TvShows";
 
 // The component just for small screens
 const HumburgerMenu = ({ genresListData, params }) => {
@@ -16,11 +17,14 @@ const HumburgerMenu = ({ genresListData, params }) => {
 
 
   const searchParams = useSearchParams();
+  const pathname = usePathname();
+  
 
   // Logic to ceck if there is a query parameter close the burger mwnu
   useEffect(() => {
     searchParams.toString() == true ? setIsOpen(true) : setIsOpen(false);
-  }, [searchParams.toString()]);
+    pathname > 1 ? setIsOpen(true) : setIsOpen(false);
+  }, [searchParams.toString(), pathname]);
 
 
 
@@ -66,6 +70,9 @@ const HumburgerMenu = ({ genresListData, params }) => {
         </span>
         <span className="mt-2">
           <Movies />
+        </span>
+        <span className="mt-2">
+          <TvShows />
         </span>
         <span className="mt-2">
           <Actors/>

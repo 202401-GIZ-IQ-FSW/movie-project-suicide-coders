@@ -76,7 +76,7 @@ const Genres = ({ genresListData }) => {
             }}
             className={`${
               isOpen ? "flex flex-col" : "hidden"
-            } bg-white z-10 absolute max-h-64 w-44 top-[75%] right md:top-[75%] md:right-1 mt-3 dark:bg-dark overflow-scroll shadow  rounded-md  p-2 dark:shadow-red-600 `}
+            } bg-white z-10 absolute max-h-64 w-44 top-[75%] right md:top-[75%] md:right-1 mt-3 no-scrollbar dark:bg-dark overflow-y-scroll shadow  rounded-md  p-2 dark:shadow-red-600 `}
           >
             {genresListData.genres.map((genres) => (
               <p className="py-3 border-b-[.5px]" key={genres.id}>

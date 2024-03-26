@@ -64,7 +64,7 @@ const Movies = ({ genresListData }) => {
               delay: .1
             }
           }}}
-       className={` bg-white transition-all ease-in duration-100 absolute  max-h-64 w-44 top-[75%] md:top-[75%] md:right-1  mt-3 dark:bg-dark overflow-scroll shadow  rounded-md  p-2 dark:shadow-red-600 z-20`}>
+       className={` bg-white transition-all ease-in duration-100 absolute  max-h-64 w-44 top-[75%] md:top-[75%] md:right-1  mt-3 dark:bg-dark overflow-scroll no-scrollbar shadow  rounded-md  p-2 dark:shadow-red-600 z-20`}>
         {MoviesCategory.map((item, i) => (
           <p className="py-3 border-b-[.5px]" key={i}>
             <Link
