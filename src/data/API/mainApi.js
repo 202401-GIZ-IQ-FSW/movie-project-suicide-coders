@@ -66,3 +66,32 @@ export async function trendingNowTv(trendTime = "day"){
    const data = await res.json();
    return data;
 }
+
+export async function airingToday(){
+   const res = await fetch('https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1', options) ;
+   const data = await res.json();
+   return data;
+}
+
+export async function onTheAir(){
+   const res = await fetch('https://api.themoviedb.org/3/tv/on_the_air?language=en-US&page=3', options)   ;
+   const data = await res.json();
+   return data;
+}
+
+export async function popularTvShows(){
+   const res = await fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=2', options)   ;
+   const data = await res.json();
+   return data;
+}
+
+
+export async function topRatedTvShows(){
+   const res = await fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1', options)   ;
+   const data = await res.json();
+   return data;
+}
+
+
+
+
