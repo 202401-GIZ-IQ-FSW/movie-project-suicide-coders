@@ -16,7 +16,7 @@ async function page({ params }) {
     actorDetailsData;
 
   return (
-    <div className="px-4 md:p-10 flex flex-col">
+    <div className="px-1 md:p-10 flex flex-col">
       <div className="flex flex-col md:flex-row  my-4">
         <img
           src={`https://image.tmdb.org/t/p/original${profile_path}`}
