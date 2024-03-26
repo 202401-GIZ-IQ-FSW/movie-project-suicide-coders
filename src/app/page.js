@@ -25,11 +25,6 @@ export default async function Home({searchParams }) {
   // Actors data
   const popularActorsData = await popularActors();
 
-  async function retrunDataFromClientSide(data) {
-    "use server";
-    return await data;
-  }
-
   return (
     <div>
       <Main

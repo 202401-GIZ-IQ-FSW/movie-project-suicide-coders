@@ -159,7 +159,7 @@ const SingleMovie = ({
           </div>
         </div>
         <div className="md:px-10 px-8 ">
-          <h4 className="md:text-2xl text-base">Movie Credits</h4>
+          <h4 className="md:text-2xl text-base">Actors</h4>
           <div className="carousel carousel-center  pt-1 space-x-4 bg-neutral rounded-box my-5 max-w-full ">
             {actorsData?.cast.slice(0, 11).map((actor, i) => (
               <div
