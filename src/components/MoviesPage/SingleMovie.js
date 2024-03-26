@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import SectionsMovie from "../landingPage/sections/SectionsMovie";
 
 const options = {
   method: "GET",
@@ -11,7 +12,11 @@ const options = {
   },
 };
 
-const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
+const SingleMovie = ({
+  currentMovieDetail,
+  movieVideosData,
+  movieSimilarData,
+}) => {
   const [actorsData, setActorData] = useState();
   const src = "https://image.tmdb.org/t/p/original";
 
@@ -123,7 +128,7 @@ const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
               <div className="flex justify-start">
                 {currentMovieDetail.genres.map((i) => (
                   <Link
-                  key={i.id}
+                    key={i.id}
                     href={{
                       pathname: `/movies`,
                       query: { genre: i.id },
@@ -185,14 +190,15 @@ const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
           </div>
         </div>
       </div>
-      <div>
-        <h4 className="md:px-10 px-8 text-start md:text-xl text-sm dm">
-          Production companies
-        </h4>
+      <div className="md:px-10 px-8 ">
+        <h4 className="text-start text-3xl dm">Production companies</h4>
 
-        <div className="flex md:px-10 px-8">
+        <div className="carousel carousel-center  pt-1 space-x-4 bg-neutral rounded-box my-5 max-w-full ">
           {currentMovieDetail.production_companies.map((company) => (
-            <div key={company.id}>
+            <div
+              className="carousel-item card card-compact bg-base-100 shadow-xl md:w-[13rem] w-[9rem]  h-full m-1"
+              key={company.id}
+            >
               {
                 <span className=" flex items-center justify-center py-5">
                   <img
@@ -205,6 +211,12 @@ const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
               }
             </div>
           ))}
+        </div>
+        <div className="p-0">
+          <SectionsMovie
+            title={"Related Movies"}
+            moviesData={movieSimilarData}
+          />
         </div>
       </div>
       <dialog id="my_modal_1" className="modal ]">

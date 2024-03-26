@@ -31,7 +31,7 @@ async function page({ params }) {
             <p className="">
               Age:{" "}
               <span className="dark:text-gray-300 text-gray-700">
-                {year - birthday.slice(0, 4)}
+                {year - birthday?.slice(0, 4)}
               </span>
             </p>
             <p className="mx-5">
@@ -49,19 +49,19 @@ async function page({ params }) {
               {popularity}
             </p>
           </div>
-          <div className="my-6 justify-end">
+          <div className="my-6 md:justify-end  ">
             <h4 className="text-2xl my-2">
             Biography
             </h4>
-            <p className="dm dark:text-gray-300 text-gray-700  text-balance text-justify w-96 md:w-auto">
+            <p className="dm dark:text-gray-300 text-gray-700  text-balance text-justify md:w-auto max-w-80 md:max-w-full">
               {biography}
             </p>
           </div>
         </div>
         
       </div>
-      <div className="my-10">
-      <h1 className=" p-4 md:p-0 text-3xl mb-5">Credits</h1>
+      <div className="my-10 p-4">
+      <h1 className=" md:p-0 text-3xl mb-5">Credits</h1>
       <div className="carousel carousel-center pt-1 space-x-4 bg-neutral rounded-box  max-w-full ">
         {actorHasMovieData.cast.map((item, i) => (
           <div

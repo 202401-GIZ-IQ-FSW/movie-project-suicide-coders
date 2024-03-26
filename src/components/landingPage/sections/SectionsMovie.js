@@ -34,14 +34,14 @@ const SectionsMovie = ({ title, moviesData }) => {
             ""
           )}
         </div>
-        <Link
+       {title != "Related Movies" && <Link
           href={{
             pathname: `/movies`,
             query: { movies: title },
           }}
         >
           <span className=" text-red-600 ">See All +</span>
-        </Link>
+        </Link>}
       </div>
       <div className="carousel carousel-center   p-4 pt-1 space-x-4 bg-neutral rounded-box my-5 max-w-full ">
         {moviesData.results.slice(0, 9).map((item, i) => (
