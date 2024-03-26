@@ -211,7 +211,7 @@ const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
         <div className="modal-box w-full h-full">
           <iframe
             className="w-full h-[40vh] mt-20"
-            src={`https://www.youtube.com/embed/${movieVideosData.results[0].key}`}
+            src={`https://www.youtube.com/embed/${movieVideosData.results[0]?.key}`}
             title={currentMovieDetail.title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -45,8 +45,8 @@ const MoivesQuery = ({title, data, pageNumber}) => {
 
       </div>
       <div className="flex flex-wrap gap-2 items-center py-5 justify-evenly">
-      {data?.results.map((movie,i)=>
-      <MovieCard key={i} moiveData={movie}/>
+      {data?.results.map((movie)=>
+      <MovieCard key={movie.id} moiveData={movie}/>
       )}
       </div>
     </div>
