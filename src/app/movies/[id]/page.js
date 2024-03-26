@@ -6,11 +6,8 @@ async function page({ params }) {
   const movieId = params.id;
   const currentMovieDetail = await movieDetails(movieId);
   let movieVideosData = await MovieVideos(movieId);
-  let actorsInMovieData = await ActorsInMovie(movieId);
-   const data = [];
-
   
-movieVideosData.results = movieVideosData.results.filter((movie)=> movie.name.toLowerCase().includes("Official Trailer".toLocaleLowerCase()));
+  movieVideosData.results = movieVideosData.results.filter((movie)=> movie.name.toLowerCase().includes("Official Trailer".toLocaleLowerCase()));
   
 
   return (

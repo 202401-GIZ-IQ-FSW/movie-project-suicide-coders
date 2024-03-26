@@ -1,12 +1,39 @@
 "use client";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMjY0YjA0ZjRmNWIwNjIyM2ViMzc1NTY1YTUyMDUzZSIsInN1YiI6IjY0ZDhjMjgyZDEwMGI2MDBjNWQxZTE5OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SJXyr7jQfr88SxA0Y8y9RU0BW48Nuo_wSsrzp_iN5nE",
+  },
+};
 
 const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
+  const [actorsData, setActorData] = useState();
+  const src = "https://image.tmdb.org/t/p/original";
+
+  async function ActorsInMovie(id) {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`,
+      options
+    );
+    const data = await res.json();
+    setActorData(data);
+  }
+
+  useEffect(() => {
+    ActorsInMovie(currentMovieDetail.id);
+  }, []);
+
   const handleCick = () => document.getElementById("my_modal_1").showModal();
   return (
     <div className="overflow-x-hidden  ">
       <div className="relative h-[60vh] md:h-[80vh]  text-center ">
         <img
-          className="w-full h-full      "
+          className="w-full h-full object-cover rounded-md"
           src={`https://image.tmdb.org/t/p/original${
             currentMovieDetail ? currentMovieDetail.backdrop_path : ""
           }`}
@@ -60,7 +87,7 @@ const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
       <div>
         <div className="flex-col md:px-6 px-4  items-start justify-start h-auto">
           {/* Rest of your code */}
-          <div className="mt-4 p-4 md:p-10 rounded shadow">
+          <div className="mt-4 p-4 md:px-3 px-2">
             <div className="mb-3">
               <p className="text-xl dm mb-1">Status</p>{" "}
               <p className="text-[12px] text-gray-400 ">
@@ -92,6 +119,23 @@ const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
               </p>
             </div>
             <div className="mb-3">
+              <p className="text-xl dm mb-1">Genres</p>
+              <div className="flex justify-start">
+                {currentMovieDetail.genres.map((i) => (
+                  <Link
+                  key={i.id}
+                    href={{
+                      pathname: `/movies`,
+                      query: { genre: i.id },
+                    }}
+                  >
+                    {" "}
+                    <p className="text-[12px] text-gray-400 mr-1">{i.name} |</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="mb-3">
               <p className="text-xl dm mb-1">Languages</p>
               <p className="text-[12px]  w-3/5 text-gray-400">
                 {currentMovieDetail &&
@@ -109,28 +153,58 @@ const SingleMovie = ({ currentMovieDetail, movieVideosData }) => {
             </div>
           </div>
         </div>
-        <div>
-          <h4 className="md:px-10 px-8 text-start md:text-xl text-sm dm">
-            Production companies
-          </h4>
-
-          <div className="flex md:px-10 px-8">
-            {currentMovieDetail.production_companies.map((company) => (
-              <>
-                {
-                  <span className=" flex items-center justify-center py-5">
+        <div className="md:px-10 px-8 ">
+          <h4 className="md:text-2xl text-base">Movie Credits</h4>
+          <div className="carousel carousel-center  pt-1 space-x-4 bg-neutral rounded-box my-5 max-w-full ">
+            {actorsData?.cast.slice(0, 11).map((actor, i) => (
+              <div
+                key={i}
+                className="carousel-item card card-compact bg-base-100 shadow-xl md:w-[13rem] w-[9rem]  h-full m-1"
+              >
+                <Link
+                  href={{
+                    pathname: `/actors/${actor.id}`,
+                  }}
+                >
+                  <figure>
                     <img
-                      className="w-[3rem] h-[3rem] mx-3"
-                      src={
-                        "https://image.tmdb.org/t/p/original" +
-                        company.logo_path
-                      }
+                      className="w-[14rem] rounded-md"
+                      src={src + actor.profile_path}
+                      alt={actor.name}
                     />
-                  </span>
-                }
-              </>
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title text-base lg:text-xl">
+                      {actor.name}
+                    </h2>
+                    <p>Popularity: {actor.popularity.toFixed(1)}</p>
+                  </div>
+                </Link>
+              </div>
             ))}
           </div>
+        </div>
+      </div>
+      <div>
+        <h4 className="md:px-10 px-8 text-start md:text-xl text-sm dm">
+          Production companies
+        </h4>
+
+        <div className="flex md:px-10 px-8">
+          {currentMovieDetail.production_companies.map((company) => (
+            <div key={company.id}>
+              {
+                <span className=" flex items-center justify-center py-5">
+                  <img
+                    className="w-[7rem] h-[7rem] mx-3 object-fill"
+                    src={
+                      "https://image.tmdb.org/t/p/original" + company.logo_path
+                    }
+                  />
+                </span>
+              }
+            </div>
+          ))}
         </div>
       </div>
       <dialog id="my_modal_1" className="modal ]">

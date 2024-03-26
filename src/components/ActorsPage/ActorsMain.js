@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 
-const ActorCard = ({ actor }) => {
+export const ActorCard = ({ actor }) => {
     const src = "https://image.tmdb.org/t/p/original";
   
     return (
@@ -21,12 +21,14 @@ const ActorCard = ({ actor }) => {
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title text-base lg:text-xl">{actor.name}</h2>
-              <p>{actor.popularity.toFixed(1)}</p>
+              <p>Popularity: {actor.popularity.toFixed(1)}</p>
                   </div>
         </Link>
       </div>
     );
   };
+
+
   
 
 
