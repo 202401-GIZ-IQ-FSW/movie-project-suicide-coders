@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Timmana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=Timmana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+
+  :root {
+    --color-primary: 247 147 34;
+    --color-text: 33 33 33;
+    --color-success: 0 200 81;
+    --color-info: 51 181 229;
+    --color-warn: 255 187 51;
+    --color-error: 254 78 78;
+  }
+
+  :root[class~="dark"] {
+    background-color: #171717;
+    color: white;
+    --color-primary: 247 147 34;
+    --color-text: 33 33 33;
+    --color-success: 0 200 81;
+    --color-info: 51 181 229;
+    --color-warn: 255 187 51;
+    --color-error: 254 78 78;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+ /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+}
+}
+
+.pt {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cha-font {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.sh-text {
+  text-shadow: 1px 1px 10px rgba(255, 0, 0, 0.651);
+}
+
+.dm {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Chau Philomene One", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ti {
+  font-family: "Timmana", sans-serif;
+  font-weight: 100;
+  font-size: .9rem;
+  font-weight: lighter;
+}
+
+
+.clip {
+  clip-path: polygon(30% 0, 100% 0, 100% 30%, 100% 80%, 70% 100%, 30% 100%, 0 100%, 0 20%);
+}
+
+.clip-lg {
+  clip-path: polygon(10% 0, 100% 0, 100% 30%, 100% 85%, 90% 100%, 30% 100%, 0 100%, 0 15%);
+
+}
+
+.clip-b {
+  clip-path: polygon(0 1%, 100% 0, 100% 90%, 75% 90%, 75% 100%, 30% 100%, 0 100%, 0% 30%);
+
+}
+
+
+
+@keyframes inputAnimation {
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 100%;
+  }
+}
+
+@keyframes inputIcons {
+  0%{
+    position: absolute;
+  }
+  100%{
+    left: 0;
+  }
+}
+
+@screen lg {
+  .md\:join-item {
+    @apply text-[17px];
+  }
+}
+
+
+.join-item {
+  @apply w-2;
+  @apply mx-[1px];
+  @apply py-1;
+  @apply text-[10px];
+  @apply h-[10px];
+  @apply border-none;
+}
+
